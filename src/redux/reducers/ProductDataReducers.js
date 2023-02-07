@@ -4,7 +4,6 @@ const initialState = {
   loading: false,
   moreLoading: false,
   error: null,
-  DeleteID: null,
   data: [],
   isListEnd: false,
 };
@@ -12,9 +11,9 @@ const initialState = {
 export default ProductDataReducers = (state = initialState, action) => {
   switch (action.type) {
     case types.SEND_REQUEST_GET_PRODUCT_API_REQUEST:
-      if (action.payload.page === 0) {
+      if (action.payload.skip === 0) {
         return {...state, data: [], loading: true};
-      } else if (action.payload.page === 1) {
+      } else if (action.payload.skip === 5) {
         return {...state, loading: true};
       } else {
         return {...state, moreLoading: true};
